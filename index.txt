@@ -1,0 +1,50 @@
+
+code1:
+
+// Étape 1 : Importer les modules nécessaires de React
+import React, { FC, useState } from 'react';
+
+
+// Étape 2 : Définir les types pour les props
+interface GreetingProps {
+    name: string;
+}
+
+// Étape 3 : Convertir le composant fonctionnel en Typescript
+const Greeting: FC<GreetingProps> = ({ name }) => {
+    return <div>Hello, {name}!</div>;
+};
+
+export default Greeting;
+
+code2:
+
+// Étape 1 : Importer les modules nécessaires de React
+import React, { Component } from 'react';
+
+// Étape 2 : Définir les types pour l'état
+interface CounterState {
+    count: number;
+}
+
+// Étape 3 : Convertir le composant de classe en Typescript
+class Counter extends Component<{}, CounterState> {
+    state: CounterState = {
+        count: 0
+    };
+
+    increment = () => {
+        this.setState({ count: this.state.count + 1 });
+    };
+
+    render() {
+        return (
+            <div>
+                <p>Count: {this.state.count}</p>
+                <button onClick={this.increment}>Increment</button>
+            </div>
+        );
+    }
+}
+
+export default Counter;
